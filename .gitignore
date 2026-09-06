@@ -43,6 +43,8 @@
 build/
 Build/
 build-*/
+.arduino/
+.vscode/
 
 # CMake generated files
 CMakeFiles/

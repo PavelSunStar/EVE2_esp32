@@ -10,13 +10,23 @@ static constexpr uint8_t  EVE_SPI_SINGLE    = 0x00;
 static constexpr uint8_t  EVE_SPI_QUAD      = 0x02;
 static constexpr uint8_t  EVE_SPI_DUMMY     = 0x04;
 
+EVE_spi::~EVE_spi(){
+    destroy();
+}
+
 void EVE_spi::destroy(){
     if (spiDevice) {
         spi_bus_remove_device(spiDevice);
         spiDevice = nullptr;
     }
 
-    spi_bus_free(SPI_HOST);
+    if (_busInitialized) {
+        spi_bus_free(SPI_HOST);
+        _busInitialized = false;
+    }
+
+    _ready = false;
+    _quadMode = false;
 }
 
 void EVE_spi::setPins(spiPins pins){
@@ -121,6 +131,7 @@ bool EVE_spi::initSPI(){
         );
         return false;
     }
+    _busInitialized = true;
 
     spi_device_interface_config_t dev = {};
     dev.clock_speed_hz = 30 * 1000 * 1000;
@@ -143,6 +154,7 @@ bool EVE_spi::initSPI(){
             esp_err_to_name(err)
         );
         spi_bus_free(SPI_HOST);
+        _busInitialized = false;
         return false;
     }
 

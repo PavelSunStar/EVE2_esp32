@@ -8,6 +8,11 @@
 
 class EVE_spi{
     public:
+        ~EVE_spi();
+
+        EVE_spi(const EVE_spi&) = delete;
+        EVE_spi& operator=(const EVE_spi&) = delete;
+
         void setPins(spiPins pins);
         bool begin(uint8_t spiMode = 0);
         bool setSPIMode(bool quad = false);
@@ -43,6 +48,7 @@ class EVE_spi{
 
     private:
         bool _ready = false;
+        bool _busInitialized = false;
         bool _quadMode = false;
         bool _quadAvailable = false;
         spiPins _pins = {};

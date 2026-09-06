@@ -9,7 +9,10 @@ void setup(){
     Serial.begin(115200);
     delay(500);
 
-    GD.init();
+    if (!GD.init()) {
+        Serial.println("EVE init FAILED");
+        while (true) delay(100);
+    }
     if (!GD.setSPIMode(true)) {
         Serial.println("QUAD SPI enable FAILED");
     }

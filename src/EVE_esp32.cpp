@@ -10,7 +10,11 @@ EVE_esp32::EVE_esp32(){
     _pins.IO2   = PIN_IO2;
     _pins.IO3   = PIN_IO3;
 
-    initLUT();    
+    initLUT();
+}
+
+EVE_esp32::~EVE_esp32(){
+    destroy();
 }
 
 void EVE_esp32::destroy(){

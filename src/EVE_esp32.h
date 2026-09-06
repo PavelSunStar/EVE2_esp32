@@ -13,7 +13,10 @@ class EVE_esp32{
         int h = 0; 
 
         EVE_esp32();
-        //~EVE_esp32();
+        ~EVE_esp32();
+
+        EVE_esp32(const EVE_esp32&) = delete;
+        EVE_esp32& operator=(const EVE_esp32&) = delete;
 
         void setPins(int8_t pinPD, int8_t pinCS, int8_t pinSCK, int8_t pinMOSI, int8_t pinMISO, int8_t pinIO2, int8_t pinIO3);
         bool init(const Mode& mode = MODE_640x480_57);

@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible problem with the library
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: board
+    attributes:
+      label: ESP32 board and Arduino-ESP32 version
+    validations:
+      required: true
+  - type: input
+    id: eve
+    attributes:
+      label: EVE controller and module
+    validations:
+      required: true
+  - type: textarea
+    id: wiring
+    attributes:
+      label: Wiring and display mode
+      description: Include every GPIO and whether quad SPI is enabled.
+    validations:
+      required: true
+  - type: textarea
+    id: sketch
+    attributes:
+      label: Minimal sketch and serial log
+      render: cpp
+    validations:
+      required: true
