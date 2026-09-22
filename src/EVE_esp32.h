@@ -15,11 +15,8 @@ class EVE_esp32{
         EVE_esp32();
         ~EVE_esp32();
 
-        EVE_esp32(const EVE_esp32&) = delete;
-        EVE_esp32& operator=(const EVE_esp32&) = delete;
-
         void setPins(int8_t pinPD, int8_t pinCS, int8_t pinSCK, int8_t pinMOSI, int8_t pinMISO, int8_t pinIO2, int8_t pinIO3);
-        bool init(const Mode& mode = MODE_640x480_57);
+        bool init(const Mode& mode = MODE640x480_57);
         bool setVGAMode(const Mode& mode);
         bool setSPIMode(bool quad = false);
         bool isQuadMode() const { return _quadMode; }
