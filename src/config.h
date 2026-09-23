@@ -25,7 +25,7 @@ inline constexpr Mode MODE640x480_60 = {
     3          // PCLK divider: 72 / 3 = 24 MHz
 };
 
-inline constexpr Mode MODE_640x480_57 = {24000000UL, 640, 800, 144, 0, 96, 480, 525, 35, 0, 2, 3};
+inline constexpr Mode MODE640x480_57 = {24000000UL, 640, 800, 144, 0, 96, 480, 525, 35, 0, 2, 3};
 inline constexpr Mode MODE640x400_70 = {24000000UL, 640, 763, 128, 0, 80, 400, 449, 35, 0, 2, 3};
 inline constexpr Mode MODE640x350_70 = {24000000UL, 640, 763, 128, 0, 80, 350, 449, 60, 0, 2, 3};
 inline constexpr Mode MODE720x400_70 = {36000000UL, 720, 1144, 216, 0, 108, 400, 449, 35, 0, 2, 2};
